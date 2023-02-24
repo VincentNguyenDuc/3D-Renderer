@@ -23,10 +23,23 @@ public class DemoViewer {
         pane.add(pitchSlider, BorderLayout.EAST);
 
         // panel to display render results
-        pane.add(Render.renderPanel(), BorderLayout.CENTER);
+        JPanel renderPanel = Render.renderPanel(headingSlider, pitchSlider);
+        // panel to display render results
+        pane.add(renderPanel, BorderLayout.CENTER);
+
+        headingSlider.addChangeListener(e -> renderPanel.repaint());
+        pitchSlider.addChangeListener(e -> renderPanel.repaint());
 
         frame.setSize(400, 400);
         frame.setVisible(true);
     }
+
+
+
+
+
+
+
+
 
 }
